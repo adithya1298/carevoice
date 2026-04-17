@@ -1,0 +1,371 @@
+// Exercise types
+export interface Exercise {
+  id: string;
+  type: 'pronunciation' | 'tongue_twister' | 'word_repetition' | 'sentence_reading' | 'minimal_pairs' | 'syllable_drill' | 'intonation';
+  title: string;
+  instruction: string;
+  content: string;
+  difficulty: 'beginner' | 'moderate' | 'severe';
+  targetGoal: string;
+  ageGroup?: string;
+}
+
+// Exercise banks by category
+const pronunciationExercises: Omit<Exercise, 'id'>[] = [
+  // Beginner - Words
+  { type: 'word_repetition', title: 'Simple Sounds', instruction: 'Repeat each word slowly and clearly', content: 'Cat, Dog, Sun, Moon, Ball', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  // Beginner - Sentences
+  { type: 'sentence_reading', title: 'Simple Sentence', instruction: 'Read this sentence clearly', content: 'The cat sat on the mat', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Basic Greeting', instruction: 'Practice this common greeting', content: 'Hello, how are you today', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Morning Routine', instruction: 'Focus on pacing', content: 'I wake up early and brush my teeth every morning', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Clear Speech Practice', instruction: 'Focus on clear sounds', content: 'The birch canoe slid on the smooth planks', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Clear Speech Practice', instruction: 'Focus on clear sounds', content: 'Glue the sheet to the dark blue background', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Clear Speech Practice', instruction: 'Focus on clear sounds', content: 'It is easy to tell the depth of a well', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Clear Speech Practice', instruction: 'Focus on clear sounds', content: 'The boy was there when the sun rose', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Clear Speech Practice', instruction: 'Focus on clear sounds', content: 'A rod is used to catch pink salmon', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Clear Speech Practice', instruction: 'Focus on clear sounds', content: 'The source of the huge river is the clear spring', difficulty: 'beginner', targetGoal: 'pronunciation' },
+  
+  // Moderate - Words
+  { type: 'tongue_twister', title: 'Tongue Twister', instruction: 'Read slowly first, then increase speed', content: 'She sells seashells by the seashore', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'word_repetition', title: 'Complex Sounds', instruction: 'Focus on the highlighted sounds', content: 'Strength, Rhythm, Twelfth, Clothes, Months', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  
+  // Moderate - Sentences
+  { type: 'sentence_reading', title: 'Sentence Flow', instruction: 'Read naturally with proper pauses', content: 'The quick brown fox jumps over the lazy dog', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Action Sentence', instruction: 'Maintain a steady pace throughout', content: 'She quickly ran to catch the bus before it left', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Shopping List', instruction: 'Read with a list intonation', content: 'I need to buy milk, bread, eggs, and some fresh fruit', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Natural Pronunciation', instruction: 'Read smoothly and naturally', content: 'The juice of lemons makes fine punch', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Natural Pronunciation', instruction: 'Read smoothly and naturally', content: 'The box was thrown beside the parked truck', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Natural Pronunciation', instruction: 'Read smoothly and naturally', content: 'The hogs were fed chopped corn and garbage', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Natural Pronunciation', instruction: 'Read smoothly and naturally', content: 'Four hours of steady work faced us', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Natural Pronunciation', instruction: 'Read smoothly and naturally', content: 'A large size in stockings is hard to sell', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Natural Pronunciation', instruction: 'Read smoothly and naturally', content: 'The soft cushion broke the man\'s fall', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Natural Pronunciation', instruction: 'Read smoothly and naturally', content: 'The salt breeze came across from the sea', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Natural Pronunciation', instruction: 'Read smoothly and naturally', content: 'The boy was there when the sun rose', difficulty: 'moderate', targetGoal: 'pronunciation' },
+  
+  // Severe - Words
+  { type: 'tongue_twister', title: 'Advanced Tongue Twister', instruction: 'Master this challenging phrase', content: 'Peter Piper picked a peck of pickled peppers', difficulty: 'severe', targetGoal: 'pronunciation' },
+  { type: 'pronunciation', title: 'Consonant Clusters', instruction: 'Practice these difficult consonant combinations', content: 'Strengths, Glimpsed, Sculpts, Twelfths, Prompts', difficulty: 'severe', targetGoal: 'pronunciation' },
+  
+  // Severe - Sentences
+  { type: 'sentence_reading', title: 'Scientific Fact', instruction: 'Focus on clear enunciation of complex words', content: 'Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods', difficulty: 'severe', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Historical Event', instruction: 'Read with formal pacing', content: 'The architectural innovations of the classical period greatly influenced modern building techniques', difficulty: 'severe', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Advanced Pronunciation', instruction: 'Enunciate every word clearly', content: 'Kick the ball straight and follow through', difficulty: 'severe', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Advanced Pronunciation', instruction: 'Enunciate every word clearly', content: 'Help the woman get back to her feet', difficulty: 'severe', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Advanced Pronunciation', instruction: 'Enunciate every word clearly', content: 'A pot of tea helps to pass the evening', difficulty: 'severe', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Advanced Pronunciation', instruction: 'Enunciate every word clearly', content: 'Smoky fires lack flame and heat', difficulty: 'severe', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Advanced Pronunciation', instruction: 'Enunciate every word clearly', content: 'The soft fleece is the primary product of the sheep', difficulty: 'severe', targetGoal: 'pronunciation' },
+  { type: 'sentence_reading', title: 'Advanced Pronunciation', instruction: 'Enunciate every word clearly', content: 'A large hole in the wall was visible', difficulty: 'severe', targetGoal: 'pronunciation' },
+];
+
+const fluencyExercises: Omit<Exercise, 'id'>[] = [
+  // Beginner
+  { type: 'word_repetition', title: 'Single Words', instruction: 'Say each word with a calm breath', content: 'One... Two... Three... Four... Five...', difficulty: 'beginner', targetGoal: 'fluency' },
+  // Moderate
+  { type: 'sentence_reading', title: 'Paced Reading', instruction: 'Read at a slow, steady pace with pauses at commas', content: 'Today is a beautiful day, the sun is shining, and the birds are singing in the trees.', difficulty: 'moderate', targetGoal: 'fluency' },
+  // Severe
+  { type: 'sentence_reading', title: 'Extended Phrases', instruction: 'Maintain steady rhythm through longer sentences', content: 'When I speak clearly and calmly, I feel confident and in control of my words and my message.', difficulty: 'severe', targetGoal: 'fluency' },
+];
+
+const accentExercises: Omit<Exercise, 'id'>[] = [
+  // Beginner
+  { type: 'minimal_pairs', title: 'Minimal Pairs - Basic', instruction: 'Notice the difference between these similar sounds', content: 'Ship vs Sheep | Bat vs Bet | Cat vs Cut', difficulty: 'beginner', targetGoal: 'accent' },
+  { type: 'intonation', title: 'Question Intonation', instruction: 'Raise your voice at the end for questions', content: 'Are you coming? ↗️ | Is it ready? ↗️ | Do you understand? ↗️', difficulty: 'beginner', targetGoal: 'accent' },
+  // Moderate
+  { type: 'minimal_pairs', title: 'Minimal Pairs - Advanced', instruction: 'Focus on subtle sound differences', content: 'Think vs Sink | Three vs Tree | Path vs Pass', difficulty: 'moderate', targetGoal: 'accent' },
+  { type: 'intonation', title: 'Stress Patterns', instruction: 'Emphasize the capitalized syllable', content: 'reCORD (verb) vs REcord (noun) | proDUCE vs PROduce', difficulty: 'moderate', targetGoal: 'accent' },
+  // Severe
+  { type: 'sentence_reading', title: 'Connected Speech', instruction: 'Practice natural word linking', content: 'What do you want to do? → "Whadaya wanna do?" | Going to → "Gonna"', difficulty: 'severe', targetGoal: 'accent' },
+  { type: 'intonation', title: 'Emotion & Intonation', instruction: 'Express different emotions with the same sentence', content: 'Say "Really?" as: Surprised 😲 | Skeptical 🤨 | Excited 🎉 | Bored 😑', difficulty: 'severe', targetGoal: 'accent' },
+];
+
+const childExercises: Omit<Exercise, 'id'>[] = [
+  { type: 'pronunciation', title: 'Animal Sounds', instruction: 'Make these fun animal sounds!', content: '🐱 Meow! | 🐶 Woof! | 🐮 Moo! | 🐷 Oink! | 🐸 Ribbit!', difficulty: 'beginner', targetGoal: 'child_development', ageGroup: 'child' },
+  { type: 'syllable_drill', title: 'Alphabet Fun', instruction: 'Say each letter with its sound', content: 'A for Apple 🍎 | B for Ball ⚽ | C for Cat 🐱 | D for Dog 🐕', difficulty: 'beginner', targetGoal: 'child_development', ageGroup: 'child' },
+  { type: 'word_repetition', title: 'Colors & Numbers', instruction: 'Say each word three times', content: 'Red 🔴 | Blue 🔵 | One ☝️ | Two ✌️ | Three 🤟', difficulty: 'beginner', targetGoal: 'child_development', ageGroup: 'child' },
+  { type: 'sentence_reading', title: 'Simple Sentences', instruction: 'Read along with the fun sentences', content: 'The cat sat on the mat. 🐱 | I like to play. 🎮 | The sun is bright. ☀️', difficulty: 'moderate', targetGoal: 'child_development', ageGroup: 'child' },
+  { type: 'tongue_twister', title: 'Fun Tongue Twister', instruction: 'Try to say this quickly!', content: 'Red lorry, yellow lorry, red lorry, yellow lorry! 🚗', difficulty: 'moderate', targetGoal: 'child_development', ageGroup: 'child' },
+];
+
+const vocabularyExercises: Omit<Exercise, 'id'>[] = [
+  { type: 'word_repetition', title: 'Daily Words', instruction: 'Learn and repeat these useful words', content: 'Appreciate, Beautiful, Comfortable, Delicious, Excellent', difficulty: 'beginner', targetGoal: 'vocabulary' },
+  { type: 'sentence_reading', title: 'Word in Context', instruction: 'Read how these words are used', content: 'The weather is BEAUTIFUL today. This chair is very COMFORTABLE.', difficulty: 'moderate', targetGoal: 'vocabulary' },
+  { type: 'word_repetition', title: 'Advanced Vocabulary', instruction: 'Practice these sophisticated words', content: 'Serendipity, Ephemeral, Eloquent, Resilient, Ambiguous', difficulty: 'severe', targetGoal: 'vocabulary' },
+];
+
+const confidenceExercises: Omit<Exercise, 'id'>[] = [
+  { type: 'sentence_reading', title: 'Positive Affirmations', instruction: 'Say these with confidence and belief', content: 'I speak clearly. My voice matters. I express myself well. I am confident.', difficulty: 'beginner', targetGoal: 'confidence' },
+  { type: 'sentence_reading', title: 'Introduction Practice', instruction: 'Practice introducing yourself confidently', content: 'Hello, my name is [Your Name]. I am pleased to meet you. How are you today?', difficulty: 'moderate', targetGoal: 'confidence' },
+  { type: 'sentence_reading', title: 'Public Speaking', instruction: 'Practice speaking as if presenting to a group', content: 'Today I would like to share with you an important topic. Please allow me to explain my thoughts clearly.', difficulty: 'severe', targetGoal: 'confidence' },
+];
+
+// Get all exercises
+const getAllExercises = (): Omit<Exercise, 'id'>[] => [
+  ...pronunciationExercises,
+  ...fluencyExercises,
+  ...accentExercises,
+  ...childExercises,
+  ...vocabularyExercises,
+  ...confidenceExercises,
+];
+
+// Profile interface for exercise generation
+interface UserProfile {
+  age_group: string | null;
+  preferred_language: string | null;
+  goals: string[] | null;
+  difficulty: string | null;
+  therapy_mode?: string | null;
+}
+
+// Adaptive data for exercise selection
+export interface AdaptiveData {
+  weakExercises: string[];
+  masteredExercises: string[];
+  weakPhonemes: string[];
+  currentDifficulty: 'beginner' | 'moderate' | 'severe';
+  weakSounds?: string[]; // Sounds that need extra practice (e.g., 'r', 'th', 'sh')
+}
+
+// Map goal values to target goals
+const goalMapping: Record<string, string> = {
+  pronunciation: 'pronunciation',
+  fluency: 'fluency',
+  vocabulary: 'vocabulary',
+  accent: 'accent',
+  confidence: 'confidence',
+  child_development: 'child_development',
+};
+
+// Check if exercise matches weak phoneme patterns
+const matchesWeakPhoneme = (content: string, weakPhonemes: string[]): boolean => {
+  if (weakPhonemes.length === 0) return false;
+  
+  const lowerContent = content.toLowerCase();
+  const phonemePatterns: Record<string, RegExp> = {
+    'th': /th/g,
+    'sh': /sh/g,
+    'ch': /ch/g,
+    'str': /str/g,
+    'spl': /spl/g,
+    'scr': /scr/g,
+    'r_blend': /[bcdfgpt]r/g,
+    'l_blend': /[bcfgps]l/g,
+    'ng': /ng/g,
+    'nk': /nk/g,
+    'tion': /tion/g,
+    'ough': /ough/g,
+  };
+  
+  return weakPhonemes.some(phoneme => {
+    const regex = phonemePatterns[phoneme];
+    return regex ? regex.test(lowerContent) : false;
+  });
+};
+
+// Check if exercise contains weak sounds (single letters/sounds)
+const containsWeakSound = (content: string, weakSounds: string[]): boolean => {
+  if (!weakSounds || weakSounds.length === 0) return false;
+  
+  const lowerContent = content.toLowerCase();
+  
+  return weakSounds.some(sound => {
+    // Create appropriate regex for each sound type
+    const soundPatterns: Record<string, RegExp> = {
+      'r': /r/gi,
+      'l': /l/gi,
+      's': /s/gi,
+      'th': /th/gi,
+      'sh': /sh/gi,
+      'ch': /ch|tch/gi,
+      'k': /k|c(?![eiy])/gi,
+      'g': /g(?![eiy])/gi,
+      'f': /f|ph/gi,
+      'v': /v/gi,
+      'z': /z/gi,
+      'j': /j|g[eiy]|dge/gi,
+      'w': /w/gi,
+      'y': /y/gi,
+      'p': /p/gi,
+      'b': /b/gi,
+      't': /t(?!h)/gi,
+      'd': /d/gi,
+      'm': /m/gi,
+      'n': /n(?!g)/gi,
+      'ng': /ng/gi,
+      'h': /h/gi,
+    };
+    
+    const regex = soundPatterns[sound];
+    return regex ? regex.test(lowerContent) : lowerContent.includes(sound);
+  });
+};
+
+// Generate personalized exercises based on user profile and adaptive data
+export const generateExercises = (
+  profile: UserProfile,
+  sessionDurationMinutes: number,
+  adaptiveData?: AdaptiveData
+): Exercise[] => {
+  const exercises: Exercise[] = [];
+  const allExercises = getAllExercises();
+  
+  // Use adaptive difficulty if available, otherwise use profile
+  const effectiveDifficulty = adaptiveData?.currentDifficulty || profile.difficulty || 'beginner';
+  
+  const validDifficulties = effectiveDifficulty === 'severe' 
+    ? ['beginner', 'moderate', 'severe']
+    : effectiveDifficulty === 'moderate'
+    ? ['beginner', 'moderate']
+    : ['beginner'];
+
+  // Determine target goals based on therapy mode
+  const therapyMode = profile.therapy_mode || 'pronunciation';
+  const modeGoalMapping: Record<string, string[]> = {
+    pronunciation: ['pronunciation', 'vocabulary'],
+    fluency: ['fluency', 'confidence'],
+    child_development: ['child_development', 'pronunciation', 'vocabulary'],
+    accent: ['accent', 'pronunciation', 'confidence'],
+  };
+  
+  // Start with mode-specific goals
+  let targetGoals = modeGoalMapping[therapyMode] || ['pronunciation'];
+  
+  // Also include user's selected goals for more variety
+  const userGoals = profile.goals || [];
+  userGoals.forEach(g => {
+    const mapped = goalMapping[g] || g;
+    if (!targetGoals.includes(mapped)) {
+      targetGoals.push(mapped);
+    }
+  });
+
+  // Add child exercises if age group is child or mode is child_development
+  if (profile.age_group === 'child' || therapyMode === 'child_development') {
+    if (!targetGoals.includes('child_development')) {
+      targetGoals.push('child_development');
+    }
+  }
+
+  // Filter exercises based on profile
+  let filteredExercises = allExercises.filter(ex => {
+    // Check difficulty
+    if (!validDifficulties.includes(ex.difficulty)) return false;
+    
+    // Check if it matches any user goal
+    if (!targetGoals.includes(ex.targetGoal)) return false;
+    
+    // Check age group for child-specific exercises
+    if (ex.ageGroup === 'child' && profile.age_group !== 'child') return false;
+    
+    return true;
+  });
+
+  // If no matching exercises, fall back to all beginner pronunciation
+  if (filteredExercises.length === 0) {
+    filteredExercises = allExercises.filter(
+      ex => ex.difficulty === 'beginner' && ex.targetGoal === 'pronunciation'
+    );
+  }
+
+  // Calculate number of exercises based on duration (approximately 2 minutes per exercise)
+  const exerciseCount = Math.max(3, Math.ceil(sessionDurationMinutes / 2));
+
+  // Apply adaptive logic if data is available
+  if (adaptiveData) {
+    const { weakExercises, masteredExercises, weakPhonemes, weakSounds } = adaptiveData;
+    
+    // Prioritize: weak exercises > exercises with weak sounds > exercises with weak phonemes > new exercises > mastered (exclude)
+    const highPriorityExercises: Omit<Exercise, 'id'>[] = [];
+    const prioritizedExercises: Omit<Exercise, 'id'>[] = [];
+    const normalExercises: Omit<Exercise, 'id'>[] = [];
+    
+    filteredExercises.forEach(ex => {
+      // Skip mastered exercises (don't repeat too often)
+      if (masteredExercises.includes(ex.content)) {
+        // Include mastered only 20% of the time for variety
+        if (Math.random() > 0.2) return;
+      }
+      
+      // Highest priority: weak exercises from user history
+      if (weakExercises.includes(ex.content)) {
+        highPriorityExercises.push(ex);
+        return;
+      }
+      
+      // High priority: exercises containing weak sounds (from sound analysis)
+      if (weakSounds && containsWeakSound(ex.content, weakSounds)) {
+        prioritizedExercises.push(ex);
+        return;
+      }
+      
+      // Medium priority: exercises with weak phoneme patterns
+      if (matchesWeakPhoneme(ex.content, weakPhonemes)) {
+        prioritizedExercises.push(ex);
+        return;
+      }
+      
+      normalExercises.push(ex);
+    });
+    
+    // Shuffle within categories
+    const shuffledHighPriority = highPriorityExercises.sort(() => Math.random() - 0.5);
+    const shuffledPriority = prioritizedExercises.sort(() => Math.random() - 0.5);
+    const shuffledNormal = normalExercises.sort(() => Math.random() - 0.5);
+    
+    // Combine: highest priority first, then prioritized, then normal
+    filteredExercises = [...shuffledHighPriority, ...shuffledPriority, ...shuffledNormal];
+  } else {
+    // No adaptive data, just shuffle
+    filteredExercises = [...filteredExercises].sort(() => Math.random() - 0.5);
+  }
+  
+  // If we need more exercises than available, repeat some
+  while (filteredExercises.length < exerciseCount) {
+    const originalFiltered = allExercises.filter(ex => 
+      validDifficulties.includes(ex.difficulty) && targetGoals.includes(ex.targetGoal)
+    );
+    filteredExercises.push(...originalFiltered.sort(() => Math.random() - 0.5));
+  }
+
+  // Select the required number
+  for (let i = 0; i < Math.min(exerciseCount, filteredExercises.length); i++) {
+    exercises.push({
+      ...filteredExercises[i],
+      id: `exercise-${i}-${Date.now()}`,
+    });
+  }
+
+
+
+  return exercises;
+};
+
+// Get exercise type display name
+export const getExerciseTypeName = (type: Exercise['type']): string => {
+  const names: Record<Exercise['type'], string> = {
+    pronunciation: 'Pronunciation',
+
+    tongue_twister: 'Tongue Twister',
+    word_repetition: 'Word Practice',
+    sentence_reading: 'Reading Aloud',
+    minimal_pairs: 'Minimal Pairs',
+    syllable_drill: 'Syllable Drill',
+    intonation: 'Intonation Practice',
+  };
+  return names[type] || type;
+};
+
+// Get exercise icon
+export const getExerciseIcon = (type: Exercise['type']): string => {
+  const icons: Record<Exercise['type'], string> = {
+    pronunciation: '🗣️',
+
+    tongue_twister: '👅',
+    word_repetition: '🔄',
+    sentence_reading: '📖',
+    minimal_pairs: '👂',
+    syllable_drill: '🎵',
+    intonation: '🎭',
+  };
+  return icons[type] || '🎯';
+};
